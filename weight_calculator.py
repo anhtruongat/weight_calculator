@@ -23,13 +23,11 @@ class Weight:
                 break
 
         while True:
-            barInput = input("Do you want to enter a different weight for the bar (default is 45lbs)? (y/n) ")
-            if barInput == "y":
-                bar = input("Please enter the weight of the bar: ")
-                if bar.isdigit() and int(bar) > 0 and int(bar) < weight and int(bar) % 5 == 0: 
-                    bar = int(bar)
-                    break
-            else:
+            bar_input = input("Do you want to enter a different weight for the bar (default is 45lbs)? ")
+            if bar_input.isdigit() and int(bar_input) > 0 and int(bar_input) < weight and int(bar_input) % 5 == 0: 
+                bar = int(bar_input)
+                break
+            if bar_input == "":
                 bar = 45
                 break 
 
@@ -78,30 +76,32 @@ class Weight:
             weight -= (five_pounds * self.five)
 
         else:
-            self.two_half = weight // two_half_pounds
+            self.two_half = int(weight // two_half_pounds)
             if self.two_half % 2 == 1:
                 self.two_half -= 1
             weight -= (two_half_pounds * self.two_half)
 
 def display(forty_five,thirty_five,twenty_five,ten,five,two_half):
     if forty_five != 0:
-        print(f"45 plate(s): {forty_five}")
+        print(f"45 plates: {forty_five}")
     if thirty_five != 0:
-        print(f"35 plate(s): {thirty_five}")
+        print(f"35 plates: {thirty_five}")
     if twenty_five != 0:
-        print(f"25 plate(s): {twenty_five}")
+        print(f"25 plates: {twenty_five}")
     if ten != 0:
-        print(f"10 plate(s): {ten}")
+        print(f"10 plates: {ten}")
     if five != 0:
-        print(f"5 plate(s): {five}")
+        print(f"5 plates: {five}")
     if two_half != 0:
-        print(f"2.5 plate(s): {two_half}")
+        print(f"2.5 plates: {two_half}")
 
 if __name__ == "__main__":
     weight = Weight()
-
-    print("----Weight Calculator----")
     
+    print("-----------------------------------------------------------\n")
+    print("                      Weight Calculator                    ")
+    print("\n-----------------------------------------------------------\n")
+
     # check the user input if it is valid
     valid_weight, valid_bar_weight = weight.check_valid_input()
         
@@ -109,8 +109,11 @@ if __name__ == "__main__":
     weight.calculate_plates(valid_weight, valid_bar_weight)
 
     # display the plates
+    print("\n-----------------------------------------------------------\n")
     print(f"For {valid_weight}lbs, you need: ")
     display(weight.forty_five, weight.thirty_five, weight.twenty_five, \
     weight.ten,weight.five,weight.two_half)
+    print("\nThank you for using the program. Bye!\n")
+
 
 
