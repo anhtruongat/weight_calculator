@@ -7,7 +7,8 @@ Weight Calculator is a Python program that calculates the amount of pre-determin
 The idea of this project comes from the fact that I notice that it takes me time to just figure out what kind of plate and how many plates I need for each weight that I lift. Therefore, I think why don't I write a program to do it for me. Hence, this project was born.
 
 ## Usage
-```bash
+Here is an example of how to use my program:
+```
 $python3 ./main.py
 ---------------------------------------------
 
