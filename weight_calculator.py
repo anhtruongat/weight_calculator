@@ -1,7 +1,7 @@
 from re import T
 import sys
 
-class Weight:
+class WeightCalculator:
     """
     Stores the amount of each type of plate based on the user input 
     for a weight and the weight of bar

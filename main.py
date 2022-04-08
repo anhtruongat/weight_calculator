@@ -1,4 +1,4 @@
-from weight_calculator import Weight
+from weight_calculator import WeightCalculator
 
 def display(forty_five: int, thirty_five: int, twenty_five: int, ten: int, five: int , two_half: int):
     """
@@ -30,7 +30,7 @@ def display(forty_five: int, thirty_five: int, twenty_five: int, ten: int, five:
         print(f"2.5 plates: {two_half}")
 
 def main():
-    weight = Weight()
+    weight = WeightCalculator()
     
     print("-----------------------------------------------------------\n")
     print("                      Weight Calculator                    ")
