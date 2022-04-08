@@ -1,3 +1,9 @@
+"""
+Name: main.py
+
+Description: This module displays the output of the required plates for 
+the requested weight from the user
+"""
 from weight_calculator import WeightCalculator
 
 def display(forty_five: int, thirty_five: int, twenty_five: int, ten: int, five: int , two_half: int):
