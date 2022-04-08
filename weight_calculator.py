@@ -26,16 +26,15 @@ class WeightCalculator:
         # The amount of a 2.5lb plate
         self.two_half = 0
 
-    def check_valid_input(self):
+    def check_valid_weight(self) -> int:
         """ 
         Parameters: None
 
-        Return: A valid weight and the valid weight of the bar
+        Return: A valid weight
 
-        Description: The method checks user input for a weight and the weight of bar 
+        Description: The method checks the user input for a weight
         """
         weight = ""
-        bar = ""
 
         # Check the validity of the weight
         while True:
@@ -48,8 +47,18 @@ class WeightCalculator:
             """
             if weight.isdigit() and int(weight) >= 5 and int(weight) % 5 == 0:
                 weight = int(weight)
-                break
-        
+                break  
+        return weight
+
+    def check_valid_bar(self) -> int:
+        """ 
+        Parameters: None
+
+        Return: The valid weight of the bar
+
+        Description: The method checks the user input for the weight of the bar 
+        """
+        bar = ""
         # Check the validity of the weight of the bar 
         while True:
             bar_input = input("Do you want to enter a different weight for the bar (default is 45lbs)? ")
@@ -64,10 +73,9 @@ class WeightCalculator:
             if bar_input == "":
                 bar = 45
                 break 
+        return bar
 
-        return weight, bar
-
-    def calculate_plates(self, weight: int, bar: int):
+    def calculate_plates(self, weight: int, bar: int) -> None:
         """
         Parameters:  The weight to calculate, the weight of the bar
 

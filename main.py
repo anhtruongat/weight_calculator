@@ -43,7 +43,8 @@ def main():
     print("\n-----------------------------------------------------------\n")
 
     # Checks the user input if they are valid
-    valid_weight, valid_bar_weight = weight.check_valid_input()
+    valid_weight = weight.check_valid_weight()
+    valid_bar_weight = weight.check_valid_bar()
         
     # If so, calculates the plates
     weight.calculate_plates(valid_weight, valid_bar_weight)
