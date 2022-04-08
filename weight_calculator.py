@@ -103,7 +103,7 @@ class WeightCalculator:
             greater than or equal to 90 (45*2) """
             self.forty_five = weight // forty_five_pounds
             """ If the quantity is odd, decement the quantity by 1 
-            because you need an even amount to put in both sides of the bar """
+            because you need an even amount to put the weight in both sides of the bar """
             if self.forty_five % 2 == 1:
                 self.forty_five -= 1
             # Gets the remain quantity of the weight after minusing the quantity of the 45lb
@@ -115,7 +115,7 @@ class WeightCalculator:
             greater than or equal to 70 (35*2)"""
             self.thirty_five = weight // thirty_five_pounds
             """ If the quantity is odd, decement the quantity by 1 
-            because you need an even amount to put in both sides of the bar """
+            because you need an even amount to put the weight in both sides of the bar """
             if self.thirty_five % 2 == 1:
                 self.thirty_five -= 1
             # Gets the remain quantity of the weight after minusing the quantity of the 35lb
@@ -127,7 +127,7 @@ class WeightCalculator:
             greater than or equal to 50 (25*2)"""
             self.twenty_five = weight // twenty_five_pounds
             """ If the quantity is odd, decement the quantity by 1 
-            because you need an even amount to put in both sides of the bar """
+            because you need an even amount to put the weight in both sides of the bar """
             if self.twenty_five % 2 == 1:
                 self.twenty_five -= 1
             # Gets the remain quantity of the weight after minusing the quantity of the 25lb
@@ -139,7 +139,7 @@ class WeightCalculator:
             greater than or equal to 20 (10*2)"""
             self.ten = weight // ten_pounds
             """ If the quantity is odd, decement the quantity by 1 
-            because you need an even amount to put in both sides of the bar """
+            because you need an even amount to put the weight in both sides of the bar """
             if self.ten % 2 == 1:
                 self.ten -= 1
             # Gets the remain quantity of the weight after minusing the quantity of the 10lb
@@ -151,7 +151,7 @@ class WeightCalculator:
             greater than or equal to 10 (5*2)"""
             self.five = weight // five_pounds
             """ If the quantity is odd, decement the quantity by 1 
-            because you need an even amount to put in both sides of the bar """
+            because you need an even amount to put the weight in both sides of the bar """
             if self.five % 2 == 1:
                 self.five -= 1
             # Gets the remain quantity of the weight after minusing the quantity of the 5lb
@@ -162,7 +162,7 @@ class WeightCalculator:
             greater than or equal to 5 (2.5*2)"""
             self.two_half = int(weight // two_half_pounds)
             """ If the quantity is odd, decement the quantity by 1 
-            because you need an even amount to put in both sides of the bar """
+            because you need an even amount to put the weight in both sides of the bar """
             if self.two_half % 2 == 1:
                 self.two_half -= 1
             # Gets the remain quantity of the weight after minusing the quantity of the 2.5lb
