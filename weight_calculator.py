@@ -26,7 +26,7 @@ class WeightCalculator:
         # The amount of a 2.5lb plate
         self.two_half = 0
 
-    def check_valid_weight(self) -> int:
+    def check_valid_weight(self, weight_input: str) -> int:
         """ 
         Parameters: None
 
@@ -34,23 +34,23 @@ class WeightCalculator:
 
         Description: The method checks the user input for a weight
         """
-        weight = ""
 
         # Check the validity of the weight
         while True:
-            weight = input("Please enter a weight that is divisible by 5 and greater than the bar (lbs): ")
-
             """ If the input is all digit, greater than 5 
             (the minimum weight for a pair of the smallest plate, which is 2.5lb),
             and the weight is divisible by 5, then convert the user input to integer and exit the loop. 
             Otherwise, continue asking the user to enter a valid weight.
             """
-            if weight.isdigit() and int(weight) >= 5 and int(weight) % 5 == 0:
-                weight = int(weight)
+            if weight_input.isdigit() and int(weight_input) >= 5 and int(weight_input) % 5 == 0:
+                weight_input = int(weight_input)
                 break  
-        return weight
 
-    def check_valid_bar(self) -> int:
+            weight_input = input("Please enter a weight that is divisible by 5 and greater than the bar (lbs): ")
+
+        return weight_input
+
+    def check_valid_bar(self, bar_input: str, weight_input: int) -> int:
         """ 
         Parameters: None
 
@@ -61,18 +61,19 @@ class WeightCalculator:
         bar = ""
         # Check the validity of the weight of the bar 
         while True:
-            bar_input = input("Do you want to enter a different weight for the bar (default is 45lbs)? ")
-
-            """ If input is all digit, greater than 0, less than the weight, 
-            and is divisible by 5, then convert the input to integer and exit the loop"""
-            if bar_input.isdigit() and int(bar_input) > 0 and int(bar_input) < weight and int(bar_input) % 5 == 0: 
+            if bar_input.isdigit() and int(bar_input) >= 0 and int(bar_input) < weight_input and int(bar_input) % 5 == 0:
+                """ If input is all digit, greater than 0, less than the weight, 
+                and is divisible by 5, then convert the input to integer and exit the loop"""
                 bar = int(bar_input)
                 break
 
-            """ If the input is blank, then set the bar to 45lbs as the default and exit the loop """
-            if bar_input == "":
+            elif bar_input == "":
+                # If the input is blank, then set the bar to 45lbs as the default and exit the loop 
                 bar = 45
-                break 
+                break
+
+            bar_input = input("Do you want to enter a different weight for the bar (default is 45lbs)? ")
+
         return bar
 
     def calculate_plates(self, weight: int, bar: int) -> None:
@@ -157,7 +158,7 @@ class WeightCalculator:
             # Gets the remain quantity of the weight after minusing the quantity of the 5lb
             weight -= (five_pounds * self.five)
 
-        else:
+        if weight >= 5:
             """Gets the quantity of the 2.5lb plate as a pair, so checks if the weight is
             greater than or equal to 5 (2.5*2)"""
             self.two_half = int(weight // two_half_pounds)

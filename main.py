@@ -42,9 +42,13 @@ def main():
     print("                      Weight Calculator                    ")
     print("\n-----------------------------------------------------------\n")
 
-    # Checks the user input if they are valid
-    valid_weight = weight.check_valid_weight()
-    valid_bar_weight = weight.check_valid_bar()
+    # Checks the weight input
+    weight_input = input("Please enter a weight that is divisible by 5 and greater than the bar (lbs): ")
+    valid_weight = weight.check_valid_weight(weight_input)
+
+    # Check the weight of the bar input
+    bar_input = input("Do you want to enter a different weight for the bar (default is 45lbs)? ")
+    valid_bar_weight = weight.check_valid_bar(bar_input, valid_weight)
         
     # If so, calculates the plates
     weight.calculate_plates(valid_weight, valid_bar_weight)
