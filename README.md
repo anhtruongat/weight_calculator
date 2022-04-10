@@ -50,3 +50,9 @@ For 55lbs, you need:
 
 Thank you for using the program. Bye!
 ```
+
+## Tests
+To run the test module:
+```
+$python3 -m tests.test
+```
