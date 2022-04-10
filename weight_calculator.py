@@ -24,13 +24,13 @@ class WeightCalculator:
 
     def calculate_plates(self, weight: int, bar: int) -> None:
         """
-        Parameters:  The weight to calculate, the weight of the bar
-
-        Return: None
-
-        Description: The method calculates the amount of each type of plates 
+        The method calculates the amount of each type of plates 
         on the weight and the weight of bar
 
+        :param weight: the valid weight input
+        :type weight: int
+        :param bar: the valid bar weight input
+        :type bar: int
         """
 
         # Initializes the size (lbs) of each type of plate
