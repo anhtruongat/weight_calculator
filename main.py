@@ -1,13 +1,10 @@
 """
-Name: main.py
-
-Description: This module displays the output of the required plates for 
-the requested weight from the user
+This module displays the output of the required plates for the requested weight from the user
 """
 
 from weight_calculator import WeightCalculator
 
-def check_valid_weight(w_input: str) -> boolean:
+def check_valid_weight(w_input: str) -> bool:
         """ The function checks if the weight input from the user is valid.
 
         :param w_input: the weight input from the user
@@ -15,11 +12,11 @@ def check_valid_weight(w_input: str) -> boolean:
         :return: Return True if the weight input is digit, greater than 5 
         (the minimum weight for a pair of the smallest plate, which is 2.5lb),
         and is divisible by 5, else return False
-        :rtype: boolean
+        :rtype: bool
         """
         return w_input.isdigit() and int(w_input) >= 5 and int(w_input) % 5 == 0
 
-def check_valid_bar(b_input: str, w_input: int) -> boolean:
+def check_valid_bar(b_input: str, w_input: int) -> bool:
     """ 
     The function checks if the weight of the bar is valid.
 
@@ -29,7 +26,7 @@ def check_valid_bar(b_input: str, w_input: int) -> boolean:
     :type w_input: int
     :return: Return True if the weight of the bar is all digit, greater than 0, less than the weight, 
     is divisible by 5, or is blank. Otherwise, return False
-    :rtype: boolean
+    :rtype: bool
     """
     return b_input == "" or (b_input.isdigit() and int(b_input) >= 0 and int(b_input) < w_input and int(b_input) % 5 == 0)
 

@@ -1,7 +1,5 @@
 """
-Name: weight_calculator.py
-
-Description: This module creates the WeightCalculator class to calculate
+This module creates the WeightCalculator class to calculate
 the quantity of plates for a specific weight that is determined by the user input.
 """
 
