@@ -1,7 +1,5 @@
 """
-Name: tests.py
-
-Description: This module does unittest for the weight calculator script.
+This module does unittest for the weight calculator script.
 """
 
 import unittest
