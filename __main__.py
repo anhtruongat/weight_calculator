@@ -2,13 +2,13 @@
 This module displays the output of the required plates for the requested weight from the user
 """
 
-from weight_calculator import WeightCalculator
+from weight_calculator import WeightCalculator  # pylint:disable=import-error
 
-def display(forty_five: int, thirty_five: int, twenty_five: int, ten: int, five: int , two_half: int):
+def display(forty_five: int, thirty_five: int, twenty_five: int, \
+    ten: int, five: int , two_half: int):
     """
     This function displays the quantity of each plate (if the quantity is not zero)
     that the user needs for both sides of the bar.
-    
     :param forty_five: the quantity of 45lb plate
     :type forty_five: int
     :param thirty_five: the quantity of 35lb plate
@@ -38,8 +38,9 @@ def display(forty_five: int, thirty_five: int, twenty_five: int, ten: int, five:
         print(f"2.5 plates: {two_half}")
 
 def main():
-    # TODO: Should probably be called 'calculator' rather than 'weight' to be clear what the object instance is
-    weight = WeightCalculator()
+    """This function asks for user input and displays
+    the quantity of plates based on that input"""
+    calculator = WeightCalculator()
     valid_weight = 0
     valid_bar_weight = 0
 
@@ -47,46 +48,40 @@ def main():
     print("                      Weight Calculator                    ")
     print("\n-----------------------------------------------------------\n")
 
-    # Checks the weight input
-    # TODO: The user has not entered a bar weight yet so they can't check that their weight is greater than the bar weight.
-    weight_input = input("Please enter a weight that is divisible by 5 and greater than the bar (lbs): ")
-    # TODO: If you choose to use this infinite loop then the above input call can live inside of the loop
-    while True:
-        isValid = weight.check_valid_weight(weight_input)
-        if isValid:
-            valid_weight = int(weight_input)
-            break  
-        weight_input = input("Please enter a weight that is divisible by 5 and greater than the bar (lbs): ")
-
     # Check the weight of the bar input
-    # TODO: The user should be prompted for the bar weight first since the weight prompt references the bar weight.
-    bar_input = input("Do you want to enter a different weight for the bar (default is 45lbs)? ")
-    # TODO: If you choose to use this infinite loop then the above input call can live inside of the loop
     while True:
-        isValid = weight.check_valid_bar(bar_input, valid_weight)
-        if isValid:
-            # If the input is blank, then set the weight of the bar to 45lbs as the default and exit the loop 
+        bar_input = input(
+            "Do you want to enter a different weight "
+            "for the bar (default is 45lbs)? "
+        )
+        is_valid = calculator.check_valid_bar(bar_input)
+        if is_valid:
+            # If the input is blank, then set the weight
+            # of the bar to 45lbs as the default and exit the loop
             if bar_input == "":
-                # TODO: Make 45 a constant
-                valid_bar_weight = 45
+                valid_bar_weight = calculator.DEFAULT_BAR_WEIGHT
             else:
                 valid_bar_weight = int(bar_input)
             break
 
-        bar_input = input("Do you want to enter a different weight for the bar (default is 45lbs)? ")
+    # Checks the weight input
+    while True:
+        weight_input = input(
+            "Please enter a weight that is divisible by 5 "
+            "and greater than the bar weight (lbs): "
+        )
+        is_valid = calculator.check_valid_weight(weight_input, valid_bar_weight)
+        if is_valid:
+            valid_weight = int(weight_input)
+            break
 
-
+    # If so, calculates the plates
+    calculator.calculate_plates(valid_weight, valid_bar_weight)
     print("\n-----------------------------------------------------------\n")
-    if valid_weight == valid_bar_weight:
-        print("No plates needed.")
-    else:
-        # If so, calculates the plates
-        weight.calculate_plates(valid_weight, valid_bar_weight)
-
-        # Display the plates
-        print(f"For {valid_weight}lbs, you need: ")
-        display(weight.forty_five, weight.thirty_five, weight.twenty_five, \
-        weight.ten,weight.five,weight.two_half)
+    # Display the plates
+    print(f"For {valid_weight}lbs, you need: ")
+    display(calculator.forty_five, calculator.thirty_five, calculator.twenty_five, \
+    calculator.ten, calculator.five, calculator.two_half)
     print("\nThank you for using the program. Bye!\n")
 
 if __name__ == "__main__":
