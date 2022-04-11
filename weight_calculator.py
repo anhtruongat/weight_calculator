@@ -32,6 +32,7 @@ class WeightCalculator:
         and is divisible by 5, else return False
         :rtype: bool
         """
+        # TODO: Check that the bar weight is less than the weight input
         return w_input.isdigit() and int(w_input) >= 5 and int(w_input) % 5 == 0
 
     def check_valid_bar(self, b_input: str, w_input: int) -> bool:
@@ -46,6 +47,7 @@ class WeightCalculator:
         is divisible by 5, or is blank. Otherwise, return False
         :rtype: bool
         """
+        # TODO: Move the bar weight and total weight comparison check into the check_valid_weight method and re-organize the logic. 
         return b_input == "" or (b_input.isdigit() and int(b_input) >= 0 and int(b_input) < w_input and int(b_input) % 5 == 0)
 
     def calculate_plates(self, weight: int, bar: int) -> None:
@@ -59,6 +61,7 @@ class WeightCalculator:
         :type bar: int
         """
 
+        # TODO: Making these constants actually makes your code less readable
         # Initializes the size (lbs) of each type of plate
         forty_five_pounds = 45
         thirty_five_pounds = 35
@@ -72,6 +75,7 @@ class WeightCalculator:
 
         # Calculates plates from the largest to the smallest plate
         if weight >= 90:
+            # TODO: Use # for inline comments. Reserve using """triple quote comments""" for docstrings.
             """Gets the quantity of the 45lb plate as a pair, so checks if the weight is
             greater than or equal to 90 (45*2) """
             self.forty_five = weight // forty_five_pounds

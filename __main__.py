@@ -38,6 +38,7 @@ def display(forty_five: int, thirty_five: int, twenty_five: int, ten: int, five:
         print(f"2.5 plates: {two_half}")
 
 def main():
+    # TODO: Should probably be called 'calculator' rather than 'weight' to be clear what the object instance is
     weight = WeightCalculator()
     valid_weight = 0
     valid_bar_weight = 0
@@ -47,7 +48,9 @@ def main():
     print("\n-----------------------------------------------------------\n")
 
     # Checks the weight input
+    # TODO: The user has not entered a bar weight yet so they can't check that their weight is greater than the bar weight.
     weight_input = input("Please enter a weight that is divisible by 5 and greater than the bar (lbs): ")
+    # TODO: If you choose to use this infinite loop then the above input call can live inside of the loop
     while True:
         isValid = weight.check_valid_weight(weight_input)
         if isValid:
@@ -56,12 +59,15 @@ def main():
         weight_input = input("Please enter a weight that is divisible by 5 and greater than the bar (lbs): ")
 
     # Check the weight of the bar input
+    # TODO: The user should be prompted for the bar weight first since the weight prompt references the bar weight.
     bar_input = input("Do you want to enter a different weight for the bar (default is 45lbs)? ")
+    # TODO: If you choose to use this infinite loop then the above input call can live inside of the loop
     while True:
         isValid = weight.check_valid_bar(bar_input, valid_weight)
         if isValid:
             # If the input is blank, then set the weight of the bar to 45lbs as the default and exit the loop 
             if bar_input == "":
+                # TODO: Make 45 a constant
                 valid_bar_weight = 45
             else:
                 valid_bar_weight = int(bar_input)
