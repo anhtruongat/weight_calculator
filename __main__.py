@@ -4,33 +4,6 @@ This module displays the output of the required plates for the requested weight 
 
 from weight_calculator import WeightCalculator
 
-def check_valid_weight(w_input: str) -> bool:
-        """ The function checks if the weight input from the user is valid.
-
-        :param w_input: the weight input from the user
-        :type w_input: str
-        :return: Return True if the weight input is digit, greater than 5 
-        (the minimum weight for a pair of the smallest plate, which is 2.5lb),
-        and is divisible by 5, else return False
-        :rtype: bool
-        """
-        return w_input.isdigit() and int(w_input) >= 5 and int(w_input) % 5 == 0
-
-def check_valid_bar(b_input: str, w_input: int) -> bool:
-    """ 
-    The function checks if the weight of the bar is valid.
-
-    :param b_input: the weight of the bar input from the user
-    :type b_input: str
-    :param w_input: the valid weight input 
-    :type w_input: int
-    :return: Return True if the weight of the bar is all digit, greater than 0, less than the weight, 
-    is divisible by 5, or is blank. Otherwise, return False
-    :rtype: bool
-    """
-    return b_input == "" or (b_input.isdigit() and int(b_input) >= 0 and int(b_input) < w_input and int(b_input) % 5 == 0)
-
-
 def display(forty_five: int, thirty_five: int, twenty_five: int, ten: int, five: int , two_half: int):
     """
     This function displays the quantity of each plate (if the quantity is not zero)
@@ -76,7 +49,7 @@ def main():
     # Checks the weight input
     weight_input = input("Please enter a weight that is divisible by 5 and greater than the bar (lbs): ")
     while True:
-        isValid = check_valid_weight(weight_input)
+        isValid = weight.check_valid_weight(weight_input)
         if isValid:
             valid_weight = int(weight_input)
             break  
@@ -85,7 +58,7 @@ def main():
     # Check the weight of the bar input
     bar_input = input("Do you want to enter a different weight for the bar (default is 45lbs)? ")
     while True:
-        isValid = check_valid_bar(bar_input, valid_weight)
+        isValid = weight.check_valid_bar(bar_input, valid_weight)
         if isValid:
             # If the input is blank, then set the weight of the bar to 45lbs as the default and exit the loop 
             if bar_input == "":
