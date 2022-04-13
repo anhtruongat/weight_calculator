@@ -24,7 +24,7 @@ class WeightCalculator:
         self.two_half = 0
 
     def check_valid_weight(self, w_input: str, b_input: int) -> bool:
-        """ The function checks if the weight input from the user is valid.
+        """ The method checks if the weight input from the user is valid.
 
         :param w_input: the weight input from the user
         :type w_input: str
@@ -40,7 +40,7 @@ class WeightCalculator:
 
     def check_valid_bar(self, b_input: str) -> bool:
         """
-        The function checks if the weight of the bar is valid.
+        The method checks if the weight of the bar is valid.
 
         :param b_input: the weight of the bar input from the user
         :type b_input: str
